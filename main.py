@@ -8,23 +8,24 @@
 #                   character and type 'start'. The first player to lose all
 #                   of their health loses.
 # Input:            char_choice = Your character choice as an integer value
-#                   start = Type start to begin the match
+#                   start = Type start to begin the match.
+#                   name = Type your name.
+#                   home = Type where you are from.
+#                   song = Enter your favorite song.
 # Output:           -An introduction message welcoming you to the game that
 #                   explains the characters
-#                   -Once you have chosen a charter, your health roll is
-#                   printed to the screen as well as your opponents.
+#                   -Once you have chosen a charter, you are asked to enter
+#                   your name, land you hail from, and your favorite song. This
+#                   information will be used as your introduction to the arena.
+#                   Your health roll is then printed to the screen as well
+#                   as your opponents health.
 #                   -Once you type 'start' the battle begins. The attack
 #                   damage done by both of you is printed to the screen
 #                   as well as the resulting drop in health.
 #                   -This continues until someones health drops to 0 or lower.
 #                   -You will be asked if you would like to play again
-# Sources:          Lab 4 specifications.
+# Sources:          Lab 5 specifications, Gaddis book, lesson 8 slides.
 # *****************************************************************************
-"""
-For Lab 5, you will be writing a more complex modular program that uses
-at least two arrays, and has at least one loop
-that accesses the data in the arrays.
-"""
 
 # Import random
 # From time Import sleep
@@ -50,6 +51,7 @@ MAGE_ID = 3
 #
 #   While play_again == "y"
 #       Set char_choice, char_string = charpick()
+#       Call char_info()
 #       Set char_health = health_roll(char_choice)
 #       Set enemy_health = health_roll(ENEMY_ID)
 #       Call arena(char_choice, char_health, enemy_health, char_string)
@@ -66,6 +68,7 @@ def main():
 
     while play_again == "y":
         char_choice, char_string = char_pick()
+        char_info()
         char_health = health_roll(char_choice)
         enemy_health = health_roll(ENEMY_ID)
         arena(char_choice, char_health, enemy_health, char_string)
@@ -101,17 +104,32 @@ def show_welcome():
 #   Constant Integer SIZE = 3
 #   Declare String char_questions[SIZE] = "What is your name?: ",
 #                                         "Where are you from?: ",
-#                                         "What is your favorite song"
-#   Declare String char_info[SIZE]
+#                                         "What is your favorite song?: "
+#   Declare String char_information[SIZE]
 #   Declare String answer
 #
 #   For question = 0 to SIZE - 1
 #       Display char_questions[question]
 #       Input answer
-#       char_info.append(answer)
-#   Return char_info
+#       char_information.append(answer)
+#   Display "\n" + char_information[0], "the brave is entering the arena."
+#   Display "He hails from the land of", char_information[1] + "."
+#   Display "and his favorite song is", char_information[2] + ".\n"
 
+def char_info():
+    SIZE = 3
+    char_questions = ["What is your name?: ",
+                      "Where are you from?: ",
+                      "What is your favorite song?: "]
+    char_information = []
+    answer = ""
 
+    for question in char_questions:
+        answer = input(question)
+        char_information.append(answer)
+    print("\n" + char_information[0], "the brave is entering the arena.")
+    print("He hails from the land of", char_information[1] + ".")
+    print("and his favorite song is", char_information[2] + ".\n")
 
 
 # Function Integer health_roll(Integer char_id)
