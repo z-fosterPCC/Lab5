@@ -109,9 +109,16 @@ def show_welcome():
 #   Declare String answer
 #
 #   For question = 0 to SIZE - 1
-#       Display char_questions[question]
-#       Input answer
-#       char_information.append(answer)
+#       While True
+#           Display char_questions[question]
+#           Input answer
+#           If answer.strip() == "" Then
+#               Display "You need to enter something. Try again."
+#           Else
+#               char_information.append(answer)
+#               break
+#           End if
+#       End while
 #   Display "\n" + char_information[0], "the brave is entering the arena."
 #   Display "He hails from the land of", char_information[1] + "."
 #   Display "and his favorite song is", char_information[2] + ".\n"
@@ -125,10 +132,15 @@ def char_info():
     answer = ""
 
     for question in char_questions:
-        answer = input(question)
-        char_information.append(answer)
+        while True:
+            answer = input(question)
+            if answer.strip() == "":
+                print("You need to enter something. Try again.")
+            else:
+                char_information.append(answer)
+                break
     print("\n" + char_information[0], "the brave is entering the arena.")
-    print("He hails from the land of", char_information[1] + ".")
+    print("He hails from the land of", char_information[1])
     print("and his favorite song is", char_information[2] + ".\n")
 
 
