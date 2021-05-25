@@ -97,6 +97,22 @@ def show_welcome():
           "(1-30).")
     print("Enter 1, 2, or 3 to choose your character.\n")
 
+# Function String char_info()
+#   Constant Integer SIZE = 3
+#   Declare String char_questions[SIZE] = "What is your name?: ",
+#                                         "Where are you from?: ",
+#                                         "What is your favorite song"
+#   Declare String char_info[SIZE]
+#   Declare String answer
+#
+#   For question = 0 to SIZE - 1
+#       Display char_questions[question]
+#       Input answer
+#       char_info.append(answer)
+#   Return char_info
+
+
+
 
 # Function Integer health_roll(Integer char_id)
 #   Declare Integer roll
