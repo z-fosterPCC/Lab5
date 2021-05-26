@@ -115,7 +115,7 @@ def show_welcome():
 #           If answer.strip() == "" Then
 #               Display "You need to enter something. Try again."
 #           Else
-#               char_information.append(answer)
+#               Set char_information[SIZE] = answer
 #               break
 #           End if
 #       End while
