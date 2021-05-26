@@ -107,6 +107,7 @@ def show_welcome():
 #                                         "What is your favorite song?: "
 #   Declare String char_information[SIZE]
 #   Declare String answer
+#   Declare Integer index
 #
 #   For question = 0 to SIZE - 1
 #       While True
@@ -115,7 +116,8 @@ def show_welcome():
 #           If answer.strip() == "" Then
 #               Display "You need to enter something. Try again."
 #           Else
-#               Set char_information[SIZE] = answer
+#               Set char_information[index] = answer
+#               Set index += 1
 #               break
 #           End if
 #       End while
